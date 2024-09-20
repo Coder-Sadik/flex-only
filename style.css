@@ -13,22 +13,47 @@ body {
 	min-height: 100vh;
 }
 
+/* Card Container with Flexbox */
 .card-container {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	gap: 16px;
 }
+
+/* Responsive Card Layout */
+
+/* Large screens: Three columns */
 .card {
+	flex: 1 1 calc(33.33% - 16px);
+	max-width: calc(33.33% - 16px);
 	background-color: var(--card-bg);
 	display: flex;
 	justify-content: space-between;
 	color: white;
-	width: 440px;
-	height: 240px;
 	border-radius: 30px;
 	cursor: pointer;
+	padding: 20px;
+	box-sizing: border-box;
 }
+
+/* Medium screens: Two columns */
+@media (max-width: 1200px) {
+	.card {
+		flex: 1 1 calc(50% - 16px);
+		max-width: calc(50% - 16px);
+	}
+}
+
+/* Small screens: One column */
+@media (max-width: 768px) {
+	.card {
+		flex: 1 1 100%;
+		max-width: 100%;
+	}
+}
+
+/* Card Left Section */
 .card-left {
 	display: flex;
 	flex-direction: column;
@@ -37,14 +62,17 @@ body {
 	font-weight: 500;
 	margin: 40px 0px 40px 40px;
 }
+
 .price {
 	white-space: nowrap;
 }
+
 .card-right {
 	position: relative;
 	display: flex;
 	margin-top: 40px;
 }
+
 .icon-new {
 	background-color: var(--icon-red);
 	color: white;
@@ -54,53 +82,85 @@ body {
 	padding: 2px 5px;
 	font-size: 12px;
 }
+
 .text-mini {
 	font-size: 16px;
 }
 
+/* Responsive Work Section */
 .work-section {
 	background: white;
 	width: 100%;
 	border-radius: 32px;
 	padding: 80px;
+	color: #282828;
 }
+
+/* Work Section Heading */
 .work-section h1 {
 	margin-bottom: 40px;
 	width: 100%;
 }
+
+/* Work Cards Container */
 .work-cards-container {
 	display: flex;
+	flex-wrap: wrap;
 	gap: 48px;
 }
+
+/* Work Card Styling */
 .card-work {
-	width: 264px;
+	width: calc(25% - 48px);
 	color: #282828;
 }
+
+/* Make Work Cards Responsive */
+@media (max-width: 1200px) {
+	.card-work {
+		width: calc(50% - 48px); /* Two columns for tablets */
+	}
+}
+
+@media (max-width: 768px) {
+	.card-work {
+		width: 100%; /* One column for mobile */
+	}
+}
+
+/* Work Card Text Styling */
 .card-work p:nth-of-type(1) {
 	font-size: 18px;
 	margin: 24px 0px;
 }
+
 .card-work p:nth-of-type(2) {
 	font-size: 14px;
 	cursor: pointer;
 }
 
+/* Arrow after the second paragraph in the work card */
 .card-work p:nth-of-type(2)::after {
 	content: ">";
 	position: relative;
 	margin-left: 90px;
 	font-size: 18px;
 }
+
+/* Responsive Social Links */
 .social-links {
 	padding: 40px;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
 	background-color: #f5f5f5;
 	border-radius: 32px;
 	margin-top: 40px;
+	gap: 20px;
 }
 
+/* Social Links Buttons */
 .social-links :not(:nth-child(1)) {
 	background-color: white;
 	padding: 15px 50px;
@@ -109,13 +169,31 @@ body {
 	cursor: pointer;
 }
 
+/* Social Links Responsiveness */
+@media (max-width: 768px) {
+	.social-links {
+		flex-direction: column;
+		gap: 20px;
+	}
+}
+
 .fa-brands {
 	margin-right: 10px;
 	font-size: 20px;
 }
+
 .fa-vk {
 	color: blue;
 }
+
 .fa-youtube {
 	color: red;
+}
+
+.bg-red{
+	background-color: red;
+	color: white;
+}
+.icon-black{
+	background: black;
 }
